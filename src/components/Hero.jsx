@@ -115,7 +115,7 @@ const Section = styled.section`
         background-color: #4361ee;
         font-size: 1.1rem;
         text-transform: uppercase;
-        transition: 0.3s ease-in-out;
+       /* transition: 0.3s ease-in-out; */
         &:hover {
           background-color: #023e8a;
         }

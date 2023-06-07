@@ -24,7 +24,7 @@ export default function Navbar() {
 
         <ul>
           <li>
-            <a href="#home">Home</a>
+          <a href="#home">Home</a> 
           </li>
           <li>
             <a href="#services">About</a>
@@ -42,7 +42,7 @@ export default function Navbar() {
         <ul>
           <li>
             <a href="#home" onClick={() => setNavbarState(false)}>
-              Home
+              Home 
             </a>
           </li>
           <li>
@@ -94,7 +94,7 @@ const Nav = styled.nav`
         text-decoration: none;
         color: #0077b6;
         font-size: 1.2rem;
-        transition: 0.1s ease-in-out;
+        transition: 0.1s ease-in-out; 
         &:hover {
           color: #023e8a;
         }
@@ -117,7 +117,7 @@ const Nav = styled.nav`
     font-size: 1.1rem;
     letter-spacing: 0.1rem;
     text-transform: uppercase;
-    transition: 0.3s ease-in-out;
+   /* transition: 0.3s ease-in-out; */
     &:hover {
       background-color: #023e8a;
     }
@@ -150,7 +150,7 @@ const ResponsiveNav = styled.div`
   height: 30vh;
   width: 100%;
   align-items: center;
-  transition: 0.3s ease-in-out;
+  /* transition: 0.3s ease-in-out; */
   ul {
     list-style-type: none;
     width: 100%;
@@ -163,7 +163,7 @@ const ResponsiveNav = styled.div`
         text-decoration: none;
         color: #0077b6;
         font-size: 1.2rem;
-        transition: 0.1s ease-in-out;
+       /* transition: 0.1s ease-in-out; */
         &:hover {
           color: #023e8a;
         }
@@ -177,3 +177,4 @@ const ResponsiveNav = styled.div`
     }
   }
 `;
+

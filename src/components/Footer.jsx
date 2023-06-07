@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { BsLinkedin, BsFacebook } from "react-icons/bs";
 import { AiFillInstagram } from "react-icons/ai";
+
 export default function Footer() {
   return (
     <FooterContainer>
@@ -50,14 +51,16 @@ const FooterContainer = styled.footer`
       a {
         text-decoration: none;
         color: black;
-        transition: 0.3s ease-in-out;
+        /* Remove transition property */
+        /* transition: 0.3s ease-in-out; */
         &:hover {
           color: #302ce9;
         }
       }
       svg {
         font-size: 1.3rem;
-        transition: 0.3s ease-in-out;
+        /* Remove transition property */
+        /* transition: 0.3s ease-in-out; */
         &:hover {
           color: #302ce9;
         }

@@ -1,81 +1,64 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import service1 from "../assets/service1.png";
-import service2 from "../assets/service2.png";
-import service3 from "../assets/service3.png";
-import service4 from "../assets/service4.png";
 
-export default function Services() {
-  const data = [
-    {
-      icon: service1,
-      title: "Get Best Prices",
-      subTitle:
-        "Pay through our application and save thousands and get amazing rewards.",
-    },
-    {
-      icon: service2,
-      title: "Covid Safe",
-      subTitle:
-        "We have all the curated hotels that have all the precaution for a covid safe environment.",
-    },
-    {
-      icon: service3,
-      title: "Flexible Payment",
-      subTitle:
-        " Enjoy the flexible payment through our app and get rewards on every payment.",
-    },
-    {
-      icon: service4,
-      title: "Find The Best Near You",
-      subTitle:
-        "Find the best hotels and places to visit near you in a single click.",
-    },
+const Card = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+  const dogImages = [
+    "https://images.unsplash.com/photo-1560807707-4a22e08df7d7", // Placeholder dog image 1
+    "https://images.unsplash.com/photo-1571260891107-5b99e67cb60c", // Placeholder dog image 2
+    "https://images.unsplash.com/photo-1560807707-4a22e08df7d7", // Placeholder dog image 1
   ];
-  return (
-    <Section id="services">
-      {data.map((service, index) => {
-        return (
-          <div className="service">
-            <div className="icon">
-              <img src={service.icon} alt="" />
-            </div>
-            <h3>{service.title}</h3>
-            <p>{service.subTitle}</p>
-          </div>
-        );
-      })}
-    </Section>
-  );
-}
 
-const Section = styled.section`
-  padding: 5rem 0;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  .service {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 2rem;
-    background-color: aliceblue;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    transition: 0.3s ease-in-out;
-    &:hover {
-      transform: translateX(0.4rem) translateY(-1rem);
-      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    }
-    .icon {
-      img {
-        height: 2.4rem;
-      }
-    }
-  }
-  @media screen and (min-width: 280px) and (max-width: 720px) {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  }
-  @media screen and (min-width: 720px) and (max-width: 1080px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prevImage) => (prevImage + 1) % dogImages.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <CardContainer>
+      <CardContent>
+        <CardTitle>Card Title</CardTitle>
+        <CardDescription>
+          This is a cute dog card. The image on the right side will keep changing.
+        </CardDescription>
+      </CardContent>
+      <CardImage src={dogImages[currentImage]} alt="Cute Dog" />
+    </CardContainer>
+  );
+};
+
+const CardContainer = styled.div`
+  display: flex;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  height: 300px; /* Adjust the height as needed */
 `;
+
+const CardContent = styled.div`
+  flex: 1;
+`;
+
+const CardTitle = styled.h3`
+  font-size: 1.2rem;
+  margin: 0;
+`;
+
+const CardDescription = styled.p`
+  margin: 0;
+  color: #666;
+`;
+
+const CardImage = styled.img`
+  width: 200px; /* Adjust the width as needed */
+  height: 100%; /* Occupy full height of the card */
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-left: 1rem;
+`;
+
+export default Card;
